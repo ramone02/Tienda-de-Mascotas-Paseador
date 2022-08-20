@@ -14,6 +14,7 @@ import {
 import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons';
 import { MoonIcon, SunIcon } from '@chakra-ui/icons';
 import dev from '../img/dev.png';
+import CartWidget from './CartWidget';
 
 const Links = ['Inicio', 'Productos', 'FAQs'];
 
@@ -65,9 +66,12 @@ export default function Simple() {
                     {/* Boton DarkMode-LigthMode */}
                     <Flex alignItems={'center'}>
                         <Stack direction={'row'} spacing={7}>
-                            <Button bg={"teal"} onClick={toggleColorMode} isRound="true">
+                            {/* Boton Carrito */}
+                            <CartWidget></CartWidget>
+                            <Button bg={"teal"} onClick={toggleColorMode}>
                                 {colorMode === 'light' ? <MoonIcon /> : <SunIcon />}
                             </Button>
+                            
                         </Stack>
                     </Flex>
                 </Flex>
