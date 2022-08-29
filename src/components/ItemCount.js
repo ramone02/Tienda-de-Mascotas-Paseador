@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Container, IconButton, Tag, Box, Button } from "@chakra-ui/react";
-import { AiFillPlusCircle, AiOutlineMinusCircle } from 'react-icons/ai';
+import { AiFillPlusCircle, AiFillMinusCircle, AiOutlinePlusCircle } from 'react-icons/ai';
 
 const ItemCount = ({ stock }) => {
 
@@ -14,9 +14,21 @@ const ItemCount = ({ stock }) => {
                 <h2>El stock Actual es de {stock}</h2>
                 <p>No puede tener Cantidad negativa, ni la cantidad puede superar el Stock</p>
                 <Box mt={5}>
-                    <Button onClick={restarCantidad}>-</Button>
+                    <IconButton
+                        bg={"teal"}
+                        size="md"
+                        fontSize="28px"
+                        icon={<AiFillMinusCircle/>}
+                        onClick={restarCantidad}
+                    />
                     <Tag>{cantidad}</Tag>
-                    <Button onClick={sumarCantidad}>+</Button>
+                    <IconButton
+                        bg={"teal"}
+                        size="md"
+                        fontSize="28px"
+                        icon={<AiFillPlusCircle />}
+                        onClick={sumarCantidad}
+                    />
                 </Box>
             </Container>
         </>

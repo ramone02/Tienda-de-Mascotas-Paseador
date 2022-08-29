@@ -35,7 +35,7 @@ const ItemListContainer = ({ titulo }) => {
     /* const getData = async() => {
             //GET
             const res = await fetch("../src/api/db.json");
-                    
+            return await res.json();      
     }; */
 
     useEffect(() => {
@@ -49,12 +49,11 @@ const ItemListContainer = ({ titulo }) => {
     return (
         <>
             <Box w="100%" my={5}>
-                <Heading>{titulo}</Heading>{/* 
+                <Heading>{titulo}</Heading>
+                <ItemList paseadores={paseadores}></ItemList>
                 {loading && <Loader></Loader>}
                 {error && <Message msg={`Error : ${error.status}:${error.statusText}`}
-                    bgColor="#dc3545"></Message>} */}
-                {loading && <Loader></Loader>}
-                <ItemList paseadores={paseadores}></ItemList>
+                    bgColor="#dc3545"></Message>}
             </Box>
         </>
     );

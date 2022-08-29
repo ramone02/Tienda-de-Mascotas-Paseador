@@ -7,14 +7,15 @@ const ItemList = ({paseadores}) => {
     return (
         <>
             <Container maxWidth="container.xl" my="5">
+                <Heading my={5}>Encontra tu Paseador</Heading>
                 <Grid
                     templateColumns="repeat(auto-fill, minmax(18rem, 1fr))"
                     templateRows="repeat(minmax(33rem, 1fr))"
                     gap="6">
-                    {paseadores.length > 0 ? paseadores.map((el) =>
+                    {paseadores && paseadores.map((el) =>
                         <GridItem>
                             <Item key={el.id} paseador={el}> a</Item>
-                        </GridItem>) : <Heading textAlign={"center"}>Cargando ...</Heading>}
+                        </GridItem>) }
                 </Grid>
             </Container>
         </>

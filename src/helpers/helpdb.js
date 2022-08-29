@@ -81,6 +81,7 @@ const paseadores = [
 const asyncGetData = new Promise((resolve, reject) => {
     setTimeout(() => {
         resolve(paseadores);
+        reject(error => console.error(error));
     }, 3000);
 });
 
