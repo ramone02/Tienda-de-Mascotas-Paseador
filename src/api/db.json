@@ -1,0 +1,73 @@
+{
+    "paseadores" :[
+        {
+            "id": 1,
+            "nombre": "Juan",
+            "img": "../img/perfil1.webp",
+            "razas": ["Dogo", "Caniche","Ovejero"],
+            "experiencia": true,
+            "descripcion": "experiencia con perros grandes en manadas",
+            "calificacion": 4
+        },
+        {
+            "id": 2,
+            "nombre": "Pedro",
+            "img": "../img/perfil2.webp",
+            "razas": [
+                "Labrador",
+                "Ovejero"
+            ],
+            "experiencia": false,
+            "descripcion": "experiencia con perros chicos, hasta 3",
+            "calificacion": 3
+        },
+        {
+            "id": 3,
+            "nombre": "Maria",
+            "img": "../img/perfil3.jpg",
+            "razas": [
+                "Mestizo",
+                "Cocker"
+            ],
+            "experiencia": false,
+            "descripcion": "Me encantan todo tipo de perro, con ganas de trabajar",
+            "calificacion": 0
+        },
+        {
+            "id": 4,
+            "nombre": "Belen",
+            "img": "../img/perfil4.jpg",
+            "razas": [
+                "Caniche",
+                "Bulldog-Frances"
+            ],
+            "experiencia": false,
+            "descripcion": "Experiencia con perros chicos hasta 3",
+            "calificacion": 3.5
+        },
+        {
+            "id": 5,
+            "nombre": "Celeste",
+            "img": "../img/perfil5.jpg",
+            "razas": [
+                "Caniche",
+                "Bulldog-Frances"
+            ],
+            "experiencia": false,
+            "descripcion": "Experiencia con perros chicos hasta 3",
+            "calificacion": 3.5
+        },
+        {
+            "id": 6,
+            "nombre": "Matias",
+            "img": "../img/perfil6.jpg",
+            "razas": [
+                "Caniche",
+                "Bulldog-Frances"
+            ],
+            "experiencia": false,
+            "descripcion": "Experiencia con perros chicos hasta 3",
+            "calificacion": 3.5
+        }
+    ]
+}

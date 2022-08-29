@@ -16,7 +16,7 @@ import { MoonIcon, SunIcon } from '@chakra-ui/icons';
 import dev from '../img/dev.png';
 import CartWidget from './CartWidget';
 
-const Links = ['Inicio', 'Productos', 'FAQs'];
+const Links = ['Inicio', 'Productos', 'Paseadores', 'FAQs'];
 
 const NavLink = ({ children }) => (
     <Link
