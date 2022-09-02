@@ -13,8 +13,8 @@ const ItemList = ({paseadores}) => {
                     templateRows="repeat(minmax(33rem, 1fr))"
                     gap="6">
                     {paseadores && paseadores.map((el) =>
-                        <GridItem>
-                            <Item key={el.id} paseador={el}> a</Item>
+                        <GridItem key={el.id}>
+                            <Item key={el.id} paseador={el}></Item>
                         </GridItem>) }
                 </Grid>
             </Container>

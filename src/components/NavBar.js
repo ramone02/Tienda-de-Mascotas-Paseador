@@ -2,7 +2,7 @@ import {
     Box,
     Flex,
     HStack,
-    Link,
+    Link as LinkChakra,
     IconButton,
     useDisclosure,
     useColorModeValue,
@@ -13,25 +13,24 @@ import {
 } from '@chakra-ui/react';
 import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons';
 import { MoonIcon, SunIcon } from '@chakra-ui/icons';
+import { Link } from 'react-router-dom';
 import dev from '../img/dev.png';
 import CartWidget from './CartWidget';
 
 const Links = ['Inicio', 'Productos', 'Paseadores', 'FAQs'];
 
 const NavLink = ({ children }) => (
-    <Link
-    /* Probando colores */
-    bg={"teal"}
+    <LinkChakra
+        /* Probando colores */
+        bg={"teal"}
         px={2}
         py={1}
         rounded={'md'}
         _hover={{
             textDecoration: 'none',
             bg: useColorModeValue('gray.300', 'gray.700'),
-        }}
-        href={'#'}>
-        {children}
-    </Link>
+        }}>
+    </LinkChakra>
 );
 
 export default function Simple() {
@@ -52,15 +51,41 @@ export default function Simple() {
                     />
                     <HStack spacing={8} alignItems={'center'}>
                         <Box>
-                            <Image boxSize='50px' src={dev}></Image>
+                            <Link to='/'>
+                                <Image boxSize='50px' src={dev}></Image>
+                            </Link>                            
                         </Box>
                         <HStack
                             as={'nav'}
                             spacing={4}
                             display={{ base: 'none', md: 'flex' }}>
-                            {Links.map((link) => (
-                                <NavLink key={link}>{link}</NavLink>
-                            ))}
+                                {/* -------- Link Inicio ------------*/}
+                            <LinkChakra bg={"teal"}
+                                px={2}
+                                py={1}
+                                rounded={'md'}
+                                _hover={{
+                                    textDecoration: 'none',
+                                    bg: useColorModeValue('gray.300', 'gray.700'),
+                                }}><Link to='/' >Inicio</Link></LinkChakra>
+                            {/* -------- Link Paseadores ------------*/}
+                            <LinkChakra bg={"teal"}
+                                px={2}
+                                py={1}
+                                rounded={'md'}
+                                _hover={{
+                                    textDecoration: 'none',
+                                    bg: useColorModeValue('gray.300', 'gray.700'),
+                                }}><Link to='paseadores'>Paseadores</Link></LinkChakra>
+                            {/* -------- Link FAQs ------------*/}
+                            <LinkChakra bg={"teal"}
+                                px={2}
+                                py={1}
+                                rounded={'md'}
+                                _hover={{
+                                    textDecoration: 'none',
+                                    bg: useColorModeValue('gray.300', 'gray.700'),
+                                }}><Link to='faqs'>FAQs</Link></LinkChakra>
                         </HStack>
                     </HStack>
                     {/* Boton DarkMode-LigthMode */}
@@ -71,7 +96,7 @@ export default function Simple() {
                             <Button bg={"teal"} onClick={toggleColorMode}>
                                 {colorMode === 'light' ? <MoonIcon /> : <SunIcon />}
                             </Button>
-                            
+
                         </Stack>
                     </Flex>
                 </Flex>
@@ -81,9 +106,27 @@ export default function Simple() {
             {isOpen ? (
                 <Box pb={4} display={{ md: 'none' }}>
                     <Stack as={'nav'} spacing={4}>
-                        {Links.map((link) => (
-                            <NavLink key={link}>{link}</NavLink>
-                        ))}
+                        <LinkChakra bg={"teal"}
+                            px={2}
+                            py={1}
+                            rounded={'md'}
+                            _hover={{
+                                textDecoration: 'none',
+                            }}><Link to='/' >Inicio</Link></LinkChakra>
+                        <LinkChakra bg={"teal"}
+                            px={2}
+                            py={1}
+                            rounded={'md'}
+                            _hover={{
+                                textDecoration: 'none',
+                            }}><Link to='paseadores'>Paseadores</Link></LinkChakra>
+                        <LinkChakra bg={"teal"}
+                            px={2}
+                            py={1}
+                            rounded={'md'}
+                            _hover={{
+                                textDecoration: 'none',
+                            }}><Link to='faqs'>FAQs</Link></LinkChakra>
                     </Stack>
                 </Box>
             ) : null}

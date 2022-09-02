@@ -41,6 +41,7 @@ const ItemListContainer = ({ titulo }) => {
     useEffect(() => {
         setLoading(true);
         asyncGetData.then((data) => {
+            console.log(data + "dataList")
             setPaseadores(data);
             setLoading(false);
         });
