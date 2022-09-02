@@ -7,12 +7,12 @@ import Loader from "./Loader.js";
 import Message from "./Message.js";
 
 const ItemDetailContainer = () => {
-    const [item, setItem] = useState([]);
+    const [item, setId] = useState([]);
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(null);
-    const { idItem } = useParams();
+    const { id } = useParams();
 
-    /* console.log(`use params ${idItem}`); */
+    console.log(id);
 
     useEffect(() => {
         setLoading(true);
@@ -20,15 +20,15 @@ const ItemDetailContainer = () => {
         asyncGetData.then((resultado) => {
             const nuevaLista = resultado.find(item => {
                 console.log(item.nombre);
-                return item.nombre === "Celeste"
+                return item.id == id
             });
             // console.log('nuevaLista',nuevaLista)
-            setItem(nuevaLista);
+            setId(nuevaLista);
             console.log(item.id);
             setLoading(false);
         });
         
-    }, []);
+    }, [id]);
 
     return (
         <>
