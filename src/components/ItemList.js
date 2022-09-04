@@ -2,7 +2,9 @@ import React from "react";
 import Item from "./Item";
 import { Container, Grid, GridItem, Heading } from "@chakra-ui/react";
 
-const ItemList = ({paseadores}) => {
+const ItemList = ({data}) => {
+
+    console.log(data + "ItemList");
     
     return (
         <>
@@ -12,7 +14,7 @@ const ItemList = ({paseadores}) => {
                     templateColumns="repeat(auto-fill, minmax(18rem, 1fr))"
                     templateRows="repeat(minmax(33rem, 1fr))"
                     gap="6">
-                    {paseadores && paseadores.map((el) =>
+                    {data && data.map((el) =>
                         <GridItem key={el.id}>
                             <Item key={el.id} paseador={el}></Item>
                         </GridItem>) }

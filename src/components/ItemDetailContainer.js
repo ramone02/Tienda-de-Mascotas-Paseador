@@ -18,7 +18,7 @@ const ItemDetailContainer = () => {
         setLoading(true);
         
         asyncGetData.then((resultado) => {
-            const nuevaLista = resultado.find(item => {
+            const nuevaLista = resultado.paseadores.find(item => {
                 console.log(item.nombre);
                 return item.id == id
             });

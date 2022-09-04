@@ -76,7 +76,16 @@ export default function Simple() {
                                 _hover={{
                                     textDecoration: 'none',
                                     bg: useColorModeValue('gray.300', 'gray.700'),
-                                }}><Link to='paseadores'>Paseadores</Link></LinkChakra>
+                                }}><Link to='/paseadores'>Paseadores</Link></LinkChakra>
+                            {/* -------- Link Productos ------------*/}
+                            <LinkChakra bg={"teal"}
+                                px={2}
+                                py={1}
+                                rounded={'md'}
+                                _hover={{
+                                    textDecoration: 'none',
+                                    bg: useColorModeValue('gray.300', 'gray.700'),
+                                }}><Link to='/productos'>Productos</Link></LinkChakra>
                             {/* -------- Link FAQs ------------*/}
                             <LinkChakra bg={"teal"}
                                 px={2}
@@ -85,7 +94,7 @@ export default function Simple() {
                                 _hover={{
                                     textDecoration: 'none',
                                     bg: useColorModeValue('gray.300', 'gray.700'),
-                                }}><Link to='faqs'>FAQs</Link></LinkChakra>
+                                }}><Link to='/faqs'>FAQs</Link></LinkChakra>
                         </HStack>
                     </HStack>
                     {/* Boton DarkMode-LigthMode */}

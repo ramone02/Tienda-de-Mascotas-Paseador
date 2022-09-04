@@ -40,7 +40,7 @@ const Item = ({paseador}) => {
                             <Text color="white">{descripcion}</Text>
                         </VStack>
                         <HStack mt={3}>
-                            {razas.map((e, index) => <Tag key={index} color="teal.700" variant="solid"><Button key={index} variant="link">#{e}</Button></Tag>)}
+                            {razas && razas.map((e, index) => <Tag key={index} color="teal.700" variant="solid"><Button key={index} variant="link">#{e}</Button></Tag>)}
                             {/* <Tag color="teal.700" variant="solid"><Button variant="link">#BullDog</Button></Tag>
                             <Tag colorScheme="teal" variant="solid"><Button variant="link">#Labrador</Button></Tag>
                             <Tag colorScheme="teal" variant="solid"><Button variant="link">#Dogo</Button></Tag> */}

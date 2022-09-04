@@ -4,13 +4,15 @@ import ItemList from "./ItemList";
 import Loader from "./Loader";
 import Message from "./Message";
 import asyncGetData from "../helpers/helpdb.js";
+import { useParams } from "react-router-dom";
 
 
 const ItemListContainer = ({ titulo }) => {
 
-    const [paseadores, setPaseadores] = useState([]);
+    const [data, setData] = useState([]);
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(null);
+    const {productos} = useParams();
 
     /* const endpoint = "../src/api/db.json"; */
 
@@ -40,18 +42,29 @@ const ItemListContainer = ({ titulo }) => {
 
     useEffect(() => {
         setLoading(true);
-        asyncGetData.then((data) => {
-            console.log(data + "dataList")
-            setPaseadores(data);
-            setLoading(false);
-        });
+        if (productos == "productos") {
+            console.log(productos + "productos");
+            asyncGetData.then((data) => {
+                console.log(data + "productos");
+                console.log(data.productos + "productos");
+                setData(data.productos);
+                setLoading(false);
+            });
+        }else{
+            console.log(productos + "paseadores");
+            asyncGetData.then((data) => {
+                console.log(data.paseadores + "paseadores")
+                setData(data.paseadores);
+                setLoading(false);
+            });
+        }
     }, []);
 
     return (
         <>
             <Box w="100%" my={5}>
                 <Heading>{titulo}</Heading>
-                <ItemList paseadores={paseadores}></ItemList>
+                <ItemList data={data}></ItemList>
                 {loading && <Loader></Loader>}
                 {error && <Message msg={`Error : ${error.status}:${error.statusText}`}
                     bgColor="#dc3545"></Message>}
