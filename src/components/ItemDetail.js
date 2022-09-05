@@ -1,6 +1,7 @@
 import React from "react";
 import {
     Badge,
+    VStack,
     Button,
     Center,
     Flex,
@@ -12,10 +13,11 @@ import {
     useColorModeValue,
     Tag,
 } from '@chakra-ui/react';
+import ItemCount from "./ItemCount";
 
-const ItemDetail = ({item})=> {
-    const { id, nombre, img, razas, experiencia, descripcion, calificacion } = item;
-    return(
+const ItemDetail = ({ item }) => {
+    const { id, nombre, img, razas, experiencia, descripcion, calificacion, tipo, precio } = item;
+    return (
         <>
             <Center py={6}>
                 <Stack
@@ -39,25 +41,28 @@ const ItemDetail = ({item})=> {
                         flexDirection="column"
                         justifyContent="center"
                         alignItems="center"
-                        p={1}
-                        pt={2}>
-                        <Heading fontSize={'2xl'} fontFamily={'body'}>
+                        p={1}>
+                        <Heading as="h2" size="2xl" >
                             {nombre}
                         </Heading>
-                        <Text fontWeight={600} color={'gray.500'} size="sm" mb={4}>
-                            {calificacion}
-                        </Text>
                         <Text
                             textAlign={'center'}
                             color={useColorModeValue('gray.700', 'gray.400')}
-                            px={3}>
+                            p={3}
+                            fontSize="2xl">
                             {descripcion}
-                            <Link href={'#'} color={'blue.400'}>
-                                {/* {razas.map((e, index) => <Tag key={index} color="teal.700" variant="solid"><Button key={index} variant="link">#{e}</Button></Tag>)} */}
-                            </Link>
-                            me in your posts
                         </Text>
-                        <Stack align={'center'} justify={'center'} direction={'row'} mt={6}>
+                        {calificacion && <Text fontWeight={600} color={'gray.500'} size="sm" fontSize="2xl" mb={2}>
+                            Calificacion: {calificacion}/5
+                        </Text>}
+                        <Link href={'#'} color={'blue.400'}>
+                            {razas && razas.map((e, index) => <Tag key={index} color="teal.700" variant="solid"><Button key={index} variant="link">#{e}</Button></Tag>)}
+                        </Link>
+                        {precio && <VStack>
+                            <Text my="1" color="white">Precio : ${precio}</Text>
+                        </VStack>}
+
+                        {/* <Stack align={'center'} justify={'center'} direction={'row'} mt={6}>
                             <Badge
                                 px={2}
                                 py={1}
@@ -79,7 +84,7 @@ const ItemDetail = ({item})=> {
                                 fontWeight={'400'}>
                                 #music
                             </Badge>
-                        </Stack>
+                        </Stack> */}
 
                         <Stack
                             width={'100%'}
@@ -88,7 +93,8 @@ const ItemDetail = ({item})=> {
                             padding={2}
                             justifyContent={'space-between'}
                             alignItems={'center'}>
-                            <Button
+                            {precio && <ItemCount></ItemCount>}
+                            {/* <Button
                                 flex={1}
                                 fontSize={'sm'}
                                 rounded={'full'}
@@ -113,7 +119,7 @@ const ItemDetail = ({item})=> {
                                     bg: 'blue.500',
                                 }}>
                                 Follow
-                            </Button>
+                            </Button> */}
                         </Stack>
                     </Stack>
                 </Stack>

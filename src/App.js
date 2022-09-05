@@ -14,8 +14,7 @@ function App() {
           <NavBar />
           <Routes>
             <Route path='/' element={<ItemListContainer titulo="Tienda de Mascotas"/>}/>
-            <Route path='/paseadores' element={<ItemListContainer titulo="Paseador indicado para tu Mascota"/>}/>
-            <Route path='/productos' element={<ItemListContainer titulo="Productos de calidad para tu Mascota"/>}/>
+            <Route path='/category/:categoryId' element={<ItemListContainer titulo=""/>}/>
             <Route path='/faqs' element={<></>}/>
             <Route path='/item/:id' element={<ItemDetailContainer/>}/>
             <Route path='*' element={<ItemListContainer titulo="Tienda de Mascotas"/>}/>

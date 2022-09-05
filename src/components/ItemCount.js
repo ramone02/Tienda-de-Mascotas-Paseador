@@ -11,8 +11,6 @@ const ItemCount = ({ stock }) => {
     return (
         <>
             <Container mt={2} maxW='container.sm' bg='' centerContent>
-                <h2>El stock Actual es de {stock}</h2>
-                <p>No puede tener Cantidad negativa, ni la cantidad puede superar el Stock</p>
                 <Box mt={5}>
                     <IconButton
                         bg={"teal"}

@@ -16,6 +16,7 @@ import { MoonIcon, SunIcon } from '@chakra-ui/icons';
 import { Link } from 'react-router-dom';
 import dev from '../img/dev.png';
 import CartWidget from './CartWidget';
+import "../navbar.css";
 
 const Links = ['Inicio', 'Productos', 'Paseadores', 'FAQs'];
 
@@ -64,6 +65,7 @@ export default function Simple() {
                                 px={2}
                                 py={1}
                                 rounded={'md'}
+                                _activeLink={{ color: '#38373b' }}
                                 _hover={{
                                     textDecoration: 'none',
                                     bg: useColorModeValue('gray.300', 'gray.700'),
@@ -73,24 +75,27 @@ export default function Simple() {
                                 px={2}
                                 py={1}
                                 rounded={'md'}
+                                _activeLink={{ color: '#38373b' }}
                                 _hover={{
                                     textDecoration: 'none',
                                     bg: useColorModeValue('gray.300', 'gray.700'),
-                                }}><Link to='/paseadores'>Paseadores</Link></LinkChakra>
+                                }}><Link to='/category/paseador'>Paseadores</Link></LinkChakra>
                             {/* -------- Link Productos ------------*/}
                             <LinkChakra bg={"teal"}
                                 px={2}
                                 py={1}
                                 rounded={'md'}
+                                _activeLink={{ color: '#38373b' }}
                                 _hover={{
                                     textDecoration: 'none',
                                     bg: useColorModeValue('gray.300', 'gray.700'),
-                                }}><Link to='/productos'>Productos</Link></LinkChakra>
+                                }}><Link to='/category/producto'>Productos</Link></LinkChakra>
                             {/* -------- Link FAQs ------------*/}
                             <LinkChakra bg={"teal"}
                                 px={2}
                                 py={1}
                                 rounded={'md'}
+                                _activeLink={{ color: '#38373b' }}
                                 _hover={{
                                     textDecoration: 'none',
                                     bg: useColorModeValue('gray.300', 'gray.700'),
@@ -128,14 +133,21 @@ export default function Simple() {
                             rounded={'md'}
                             _hover={{
                                 textDecoration: 'none',
-                            }}><Link to='paseadores'>Paseadores</Link></LinkChakra>
+                            }}><Link to='/category/paseador'>Paseadores</Link></LinkChakra>
                         <LinkChakra bg={"teal"}
                             px={2}
                             py={1}
                             rounded={'md'}
                             _hover={{
                                 textDecoration: 'none',
-                            }}><Link to='faqs'>FAQs</Link></LinkChakra>
+                            }}><Link to='/category/producto'>Productos</Link></LinkChakra>
+                        <LinkChakra bg={"teal"}
+                            px={2}
+                            py={1}
+                            rounded={'md'}
+                            _hover={{
+                                textDecoration: 'none',
+                            }}><Link to='/faqs'>FAQs</Link></LinkChakra>
                     </Stack>
                 </Box>
             ) : null}
