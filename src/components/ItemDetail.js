@@ -1,6 +1,5 @@
 import React from "react";
 import {
-    Badge,
     VStack,
     Button,
     Center,
@@ -17,6 +16,11 @@ import ItemCount from "./ItemCount";
 
 const ItemDetail = ({ item }) => {
     const { id, nombre, img, razas, experiencia, descripcion, calificacion, tipo, precio } = item;
+
+    const onAdd = (cantidad) => {
+        console.log(cantidad);
+    }
+
     return (
         <>
             <Center py={6}>
@@ -61,31 +65,6 @@ const ItemDetail = ({ item }) => {
                         {precio && <VStack>
                             <Text my="1" color="white">Precio : ${precio}</Text>
                         </VStack>}
-
-                        {/* <Stack align={'center'} justify={'center'} direction={'row'} mt={6}>
-                            <Badge
-                                px={2}
-                                py={1}
-                                bg={useColorModeValue('gray.50', 'gray.800')}
-                                fontWeight={'400'}>
-                                #art
-                            </Badge>
-                            <Badge
-                                px={2}
-                                py={1}
-                                bg={useColorModeValue('gray.50', 'gray.800')}
-                                fontWeight={'400'}>
-                                #photography
-                            </Badge>
-                            <Badge
-                                px={2}
-                                py={1}
-                                bg={useColorModeValue('gray.50', 'gray.800')}
-                                fontWeight={'400'}>
-                                #music
-                            </Badge>
-                        </Stack> */}
-
                         <Stack
                             width={'100%'}
                             mt={'2rem'}
@@ -93,33 +72,7 @@ const ItemDetail = ({ item }) => {
                             padding={2}
                             justifyContent={'space-between'}
                             alignItems={'center'}>
-                            {precio && <ItemCount></ItemCount>}
-                            {/* <Button
-                                flex={1}
-                                fontSize={'sm'}
-                                rounded={'full'}
-                                _focus={{
-                                    bg: 'gray.200',
-                                }}>
-                                Message
-                            </Button>
-                            <Button
-                                flex={1}
-                                fontSize={'sm'}
-                                rounded={'full'}
-                                bg={'blue.400'}
-                                color={'white'}
-                                boxShadow={
-                                    '0px 1px 25px -5px rgb(66 153 225 / 48%), 0 10px 10px -5px rgb(66 153 225 / 43%)'
-                                }
-                                _hover={{
-                                    bg: 'blue.500',
-                                }}
-                                _focus={{
-                                    bg: 'blue.500',
-                                }}>
-                                Follow
-                            </Button> */}
+                            {precio && <ItemCount onAdd={onAdd}></ItemCount>}
                         </Stack>
                     </Stack>
                 </Stack>

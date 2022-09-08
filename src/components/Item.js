@@ -6,21 +6,15 @@ import {
     Button,
     Heading,
     Text,
-    useColorModeValue,
     VStack,
     HStack,
     IconButton,
 } from '@chakra-ui/react';
 import { BsCalendarWeek } from "react-icons/bs";
-import { FiMail } from "react-icons/fi";
 import { Link } from "react-router-dom";
 
 const Item = ({ data }) => {
     const { id, nombre, img, razas, experiencia, descripcion, calificacion, tipo, precio } = data;
-
-    const handleClick = (e) => {
-
-    };
 
     return (
         <>

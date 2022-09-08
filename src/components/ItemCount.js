@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { Container, IconButton, Tag, Box, Button } from "@chakra-ui/react";
-import { AiFillPlusCircle, AiFillMinusCircle, AiOutlinePlusCircle } from 'react-icons/ai';
+import { AiFillPlusCircle, AiFillMinusCircle} from 'react-icons/ai';
 
-const ItemCount = ({ stock }) => {
+const ItemCount = ({ stock, onAdd }) => {
 
     const [cantidad, setCantidad] = useState(0);
 
@@ -10,23 +10,24 @@ const ItemCount = ({ stock }) => {
     const restarCantidad = () => cantidad > 0 ? setCantidad(cantidad - 1) : setCantidad(0);
     return (
         <>
-            <Container mt={2} maxW='container.sm' bg='' centerContent>
-                <Box mt={5}>
+            <Container maxW='container.sm' bg='' centerContent>
+                <Box mt={2}>
                     <IconButton
                         bg={"teal"}
-                        size="md"
+                        size="sm"
                         fontSize="28px"
-                        icon={<AiFillMinusCircle/>}
+                        icon={<AiFillMinusCircle />}
                         onClick={restarCantidad}
                     />
-                    <Tag>{cantidad}</Tag>
+                    <Tag size="lg">{cantidad}</Tag>
                     <IconButton
                         bg={"teal"}
-                        size="md"
+                        size="sm"
                         fontSize="28px"
                         icon={<AiFillPlusCircle />}
                         onClick={sumarCantidad}
                     />
+                    <Button my="2" rounded={"full"} onClick={() => onAdd(cantidad)}>Agregar al Carrito</Button>
                 </Box>
             </Container>
         </>

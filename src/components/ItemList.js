@@ -2,12 +2,8 @@ import React from "react";
 import Item from "./Item";
 import { Container, Grid, GridItem, Heading } from "@chakra-ui/react";
 
-const ItemList = ({data}) => {
+const ItemList = ({ data }) => {
 
-    data.forEach(e => {
-        console.log(e);
-    });
-    
     return (
         <>
             <Container maxWidth="container.xl" my="5">
@@ -19,7 +15,7 @@ const ItemList = ({data}) => {
                     {data && data.map((el) =>
                         <GridItem key={el.id}>
                             <Item key={el.id} data={el}></Item>
-                        </GridItem>) }
+                        </GridItem>)}
                 </Grid>
             </Container>
         </>
