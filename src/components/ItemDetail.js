@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext, useState } from "react";
 import {
     VStack,
     Button,
@@ -13,12 +13,18 @@ import {
     Tag,
 } from '@chakra-ui/react';
 import ItemCount from "./ItemCount";
+import { CartContext } from "../context/CartContext";
 
 const ItemDetail = ({ item }) => {
     const { id, nombre, img, razas, experiencia, descripcion, calificacion, tipo, precio } = item;
+    const {addProduct} = useContext(CartContext);
+    const [finalizarCompra, setFinalizarCompra] = useState(false);
 
     const onAdd = (cantidad) => {
-        console.log(cantidad);
+        const newProduct = {...item, cantidad: cantidad};
+        console.log(newProduct);
+        addProduct(newProduct);
+        setFinalizarCompra(true);
     }
 
     return (
@@ -72,7 +78,7 @@ const ItemDetail = ({ item }) => {
                             padding={2}
                             justifyContent={'space-between'}
                             alignItems={'center'}>
-                            {precio && <ItemCount onAdd={onAdd}></ItemCount>}
+                            {precio && <ItemCount finalizarCompra={finalizarCompra} onAdd={onAdd}></ItemCount>}
                         </Stack>
                     </Stack>
                 </Stack>

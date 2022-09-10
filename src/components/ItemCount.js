@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import { Container, IconButton, Tag, Box, Button } from "@chakra-ui/react";
+import { Link } from 'react-router-dom';
 import { AiFillPlusCircle, AiFillMinusCircle} from 'react-icons/ai';
 
-const ItemCount = ({ stock, onAdd }) => {
+const ItemCount = ({ stock, onAdd, finalizarCompra }) => {
 
     const [cantidad, setCantidad] = useState(0);
 
@@ -28,6 +29,7 @@ const ItemCount = ({ stock, onAdd }) => {
                         onClick={sumarCantidad}
                     />
                     <Button my="2" rounded={"full"} onClick={() => onAdd(cantidad)}>Agregar al Carrito</Button>
+                    {finalizarCompra && <Link to="/cart"><Button bg={"teal"} variant="solid">Finalizar Compra</Button></Link>}
                 </Box>
             </Container>
         </>
