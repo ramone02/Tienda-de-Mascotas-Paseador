@@ -1,5 +1,6 @@
 import './App.css';
 import NavBar from './components/NavBar';
+import Footer from './components/Footer';
 import ItemListContainer from './components/ItemListContainer';
 import { Box } from '@chakra-ui/react';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
@@ -22,6 +23,7 @@ function App() {
               <Route path='/cart' element={<CartContainer />}></Route>
               <Route path='*' element={<ItemListContainer titulo="Tienda de Mascotas" />} />
             </Routes>
+            <Footer/>
           </Box>
         </div>
       </BrowserRouter>

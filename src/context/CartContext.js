@@ -25,6 +25,7 @@ export const CartProvider = ({ children }) => {
         }
     }
 
+    //si exite el producto y su cantidad > 1 resto de cantidad si no lo quito del Cart
     const removeProduct = (id) => {
         const indexProduct = exists(id);
         const copyProducts = [...productCartList];

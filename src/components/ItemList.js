@@ -1,23 +1,20 @@
 import React from "react";
 import Item from "./Item";
-import { Container, Grid, GridItem, Heading } from "@chakra-ui/react";
+import { Container, Heading, Box, SimpleGrid } from "@chakra-ui/react";
 
 const ItemList = ({ data }) => {
 
     return (
         <>
-            <Container maxWidth="container.xl" my="5">
-                <Heading my={5}></Heading>
-                <Grid
-                    templateColumns="repeat(auto-fill, minmax(18rem, 1fr))"
-                    templateRows="repeat(minmax(33rem, 1fr))"
-                    gap="6">
+            <Container maxWidth={"80%"} color='#262626' mt={10} mb={10}>                
+                <SimpleGrid columns={{ sm: 1, md: 2, lg: 3, xl: 4 }} spacing={"60px"}>
                     {data && data.map((el) =>
-                        <GridItem key={el.id}>
+                        <Box key={el.id}>
                             <Item key={el.id} data={el}></Item>
-                        </GridItem>)}
-                </Grid>
+                        </Box>)}
+                </SimpleGrid>
             </Container>
+            <Heading my={5}></Heading>
         </>
     );
 }

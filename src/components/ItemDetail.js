@@ -31,7 +31,7 @@ const ItemDetail = ({ item }) => {
         <>
             <Center py={6}>
                 <Stack
-                    borderWidth="2px"
+                    borderWidth="1px"
                     borderRadius="lg"
                     w={{ sm: '100%', md: '640px' }}
                     height={{ sm: '476px', md: '25rem' }}

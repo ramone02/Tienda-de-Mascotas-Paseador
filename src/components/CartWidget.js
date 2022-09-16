@@ -1,6 +1,6 @@
 import React from "react";
 import { BsCart3 } from 'react-icons/bs';
-import { IconButton } from "@chakra-ui/react";
+import { IconButton, ModalOverlay, } from "@chakra-ui/react";
 import { Link } from 'react-router-dom';
 
 //componente Btn Carrito(chakraUi-React-Icons)

@@ -29,7 +29,7 @@ const ItemCount = ({ stock, onAdd, finalizarCompra }) => {
                         onClick={sumarCantidad}
                     />
                     <Button my="2" rounded={"full"} onClick={() => onAdd(cantidad)}>Agregar al Carrito</Button>
-                    {finalizarCompra && <Link to="/cart"><Button bg={"teal"} variant="solid">Finalizar Compra</Button></Link>}
+                    {finalizarCompra && <Link to="/cart"><Button bg={"teal"}  variant="solid">Finalizar Compra</Button></Link>}
                 </Box>
             </Container>
         </>

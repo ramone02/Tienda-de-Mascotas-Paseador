@@ -18,8 +18,7 @@ const Item = ({ data }) => {
 
     return (
         <>
-            <Box
-                maxWidth="280px"
+            <Box                
                 p={5}
                 textAlign="center"
                 borderRadius="lg"
@@ -31,7 +30,7 @@ const Item = ({ data }) => {
                     <Heading as="h3" size="lg" color="white" fontWeight="bold" mt={2}>{nombre}</Heading>
                     <Box mt={2}>
                         <VStack>
-                            <Text my="1" color="white">{descripcion}</Text>
+                            <Text my="1" color="white" >{descripcion} </Text>
                             {tipo && <Tag color="teal.700" variant="solid"><Button variant="link">#{tipo}</Button></Tag>}
                         </VStack>
                         <VStack>
