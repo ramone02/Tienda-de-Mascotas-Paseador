@@ -1,11 +1,22 @@
-import React from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { BsCart3 } from 'react-icons/bs';
-import { IconButton, ModalOverlay, } from "@chakra-ui/react";
+import { IconButton} from "@chakra-ui/react";
 import { Link } from 'react-router-dom';
+import { CartContext } from "../context/CartContext";
 
 //componente Btn Carrito(chakraUi-React-Icons)
 
 const CartWidget = () => {
+
+    const {productCartList} = useContext(CartContext);
+    const [total, settotal] = useState(0);
+
+    useEffect(()=>{
+        settotal(productCartList.reduce((acc, e) => acc + e.cantidad, 0));
+    },[productCartList])
+
+
+
     return (
         <>
             <Link to="/cart">
@@ -13,8 +24,9 @@ const CartWidget = () => {
                     bg={"teal"}
                     size="md"
                     fontSize="28px"
-                    icon={<BsCart3 />}
-                />
+                    icon={<BsCart3/>}
+                ></IconButton>                
+                {total > 0 && <span>{total}</span> }
             </Link>
         </>
     );

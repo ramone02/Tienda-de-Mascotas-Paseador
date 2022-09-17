@@ -22,7 +22,6 @@ const ItemDetail = ({ item }) => {
 
     const onAdd = (cantidad) => {
         const newProduct = {...item, cantidad: cantidad};
-        console.log(newProduct);
         addProduct(newProduct);
         setFinalizarCompra(true);
     }

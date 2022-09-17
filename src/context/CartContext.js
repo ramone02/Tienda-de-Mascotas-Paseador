@@ -42,6 +42,14 @@ export const CartProvider = ({ children }) => {
         productCartList?.length > 0 ? setProductCartList([]) : setProductCartList(productCartList);
     }
 
+    const contadorCart = () => {
+        return productCartList.reduce((acc, e) => acc + e.cantidad, 0);
+    }
+
+    const getPrecioTotal = () =>{
+        return productCartList.reduce((acc, e) => acc + e.precio * e.cantidad, 0);
+    }
+
     return (
         <CartContext.Provider value={{ productCartList, addProduct, removeProduct, cleanCart }}>
             {/*...Components*/}

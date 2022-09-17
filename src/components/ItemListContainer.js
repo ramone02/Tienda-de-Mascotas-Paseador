@@ -36,7 +36,7 @@ const ItemListContainer = ({ titulo }) => {
             <Box w="100%" my={5}>
                 <Heading>{titulo}</Heading>
                 {loading && <Loader></Loader>}
-                {data && <ItemList data={data}></ItemList>}
+                {!loading && data && <ItemList data={data}></ItemList>}
                 {error && <Message msg={`Error : ${error.status}:${error.statusText}`}
                     bgColor="#dc3545"></Message>}
             </Box>

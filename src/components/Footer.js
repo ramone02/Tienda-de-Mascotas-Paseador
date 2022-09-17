@@ -58,7 +58,7 @@ const SocialButton = ({
 
 export default function SmallCentered() {
     return (
-        <Box
+        <Box position={""} bottom={""}
             color={useColorModeValue('gray.700', 'gray.200')}>
             <Container
                 as={Stack}
