@@ -1,7 +1,7 @@
 import { Box, Heading, Text, Button, Link as LinkChakra, useColorModeValue } from '@chakra-ui/react';
 import { Link } from 'react-router-dom';
 
-const  CartEmpty = ()=>  {
+const CartEmpty = () => {
     return (
         <Box textAlign="center" py={10} px={6}>
             <Heading
@@ -10,13 +10,13 @@ const  CartEmpty = ()=>  {
                 size="2xl"
                 bgGradient="linear(to-r, teal.400, teal.600)"
                 backgroundClip="text">
-                404
+                Su Carrito está Vacio
             </Heading>
             <Text fontSize="18px" mt={3} mb={2}>
-                Page Not Found
+                No se ha encontrado productos en su carrito
             </Text>
             <Text color={'gray.500'} mb={6}>
-                The page you're looking for does not seem to exist
+                Si desea puede volver al listado de Productos para añadir al carrito
             </Text>
 
             <Button bg={"teak"}>
@@ -30,7 +30,7 @@ const  CartEmpty = ()=>  {
                         bg: useColorModeValue('gray.300', 'gray.700'),
                     }}><Link to='/category/producto'>Ir a productos</Link></LinkChakra>
             </Button>
-            
+
         </Box>
     );
 }

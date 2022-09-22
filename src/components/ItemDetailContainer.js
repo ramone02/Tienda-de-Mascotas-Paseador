@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { Box, Heading } from "@chakra-ui/react";
-import {getProductsId} from "../helpers/helpdb.js";
 import { useParams } from 'react-router-dom';
 import ItemDetail from "./ItemDetail.js";
 import Loader from "./Loader.js";
 import Message from "./Message.js";
+import {getDocById} from '../helpers/helpfirebase.js';
 
 const ItemDetailContainer = () => {
     const [item, setItem] = useState({});
@@ -14,12 +14,11 @@ const ItemDetailContainer = () => {
 
     useEffect(() => {
         setLoading(true);
-        const getData = getProductsId(parseInt(id));
+        const getData = getDocById((id));
         getData.then((res) => {
             setItem(res);
             setLoading(false);
-        });
-        
+        });        
     }, [id]);
 
     return (

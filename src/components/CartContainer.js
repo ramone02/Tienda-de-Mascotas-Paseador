@@ -11,7 +11,7 @@ import {
     IconButton,
     Button
 } from '@chakra-ui/react';
-import {DeleteIcon} from '@chakra-ui/icons';
+import { DeleteIcon } from '@chakra-ui/icons';
 import Loader from "./Loader";
 import CartEmpty from "./CartEmpty";
 
@@ -22,21 +22,21 @@ const CartContainer = () => {
     const [total, setTotal] = useState(0);
 
 
-    useEffect(()=>{
+    useEffect(() => {
         setLoading(true);
-        setTimeout(() => {            
+        setTimeout(() => {
             setLoading(false);
             setTotal(productCartList.reduce((acc, e) => acc + e.precio * e.cantidad, 0));
         }, 3000);
-    },[productCartList])
+    }, [productCartList])
 
 
     return (
         <>
             <Container maxWidth={"80%"} mt={10} mb={10} centerContent>
-                <Heading mb={5}>Carrito de Compras</Heading>
                 {loading && <Loader></Loader>}
                 {!loading && productCartList.length > 0 && <Table variant='striped' size={["lg", "md"]} >
+                    <Heading mb={5}>Carrito de Compras</Heading>
                     <TableCaption>Este es su carrito de Compras</TableCaption>
                     <Thead>
                         <Tr>
@@ -57,7 +57,7 @@ const CartContainer = () => {
                                 <Td>{e.tipo}</Td>
                                 <Td>{e.precio}</Td>
                                 <Td>{e.cantidad}</Td>
-                                <Td value={e.id}><IconButton bg={"red"} icon={<DeleteIcon/>} onClick={()=>removeProduct(e.id)}/></Td>
+                                <Td value={e.id}><IconButton bg={"red"} icon={<DeleteIcon />} onClick={() => removeProduct(e.id)} /></Td>
                                 <Td>{e.precio * e.cantidad}</Td>
                             </Tr>)}
                     </Tbody>

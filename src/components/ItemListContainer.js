@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import ItemList from "./ItemList";
 import Loader from "./Loader";
 import Message from "./Message";
-import { getProducts, getProductsCategory } from "../helpers/helpdb.js";
+import { getAllDoscs, getDocById, getDocsCategory } from '../helpers/helpfirebase.js';
 import { useParams } from "react-router-dom";
 
 
@@ -17,19 +17,21 @@ const ItemListContainer = ({ titulo }) => {
     useEffect(() => {
         setLoading(true);
         if (params.categoryId) {
-            const getData = getProductsCategory(params.categoryId);
+            const getData = getDocsCategory(params.categoryId);
             getData.then((res) => {
                 setData(res);
                 setLoading(false);
             });
         } else {
-            const getData = getProducts();
+            const getData = getAllDoscs();
             getData.then((res) => {
                 setData(res);
                 setLoading(false);
             });
         }
     }, [params.categoryId]);
+
+
 
     return (
         <>
