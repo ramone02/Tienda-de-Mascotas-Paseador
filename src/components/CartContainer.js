@@ -14,30 +14,37 @@ import {
 import { DeleteIcon } from '@chakra-ui/icons';
 import Loader from "./Loader";
 import CartEmpty from "./CartEmpty";
+import FormOrder from "./FormOrder";
 
 const CartContainer = () => {
 
     const [loading, setLoading] = useState(null);
-    const { productCartList, addProduct, removeProduct, cleanCart, getPrecioTotal } = useContext(CartContext);
+    const [finalizarCompra, setFinalizarCompra] = useState(false);
     const [total, setTotal] = useState(0);
-
+    const { productCartList, addProduct, removeProduct, cleanCart, getPrecioTotal } = useContext(CartContext);
 
     useEffect(() => {
         setLoading(true);
         setTimeout(() => {
             setLoading(false);
-            setTotal(productCartList.reduce((acc, e) => acc + e.precio * e.cantidad, 0));
+            setTotal(getPrecioTotal());
         }, 3000);
-    }, [productCartList])
+    }, [productCartList, getPrecioTotal]);
 
+    const handleFinalizarCompra = () => {
+        setFinalizarCompra(true);
+    }
 
     return (
         <>
             <Container maxWidth={"80%"} mt={10} mb={10} centerContent>
+                <Heading mb={5}>Carrito de Compras</Heading>
                 {loading && <Loader></Loader>}
                 {!loading && productCartList.length > 0 && <Table variant='striped' size={["lg", "md"]} >
-                    <Heading mb={5}>Carrito de Compras</Heading>
-                    <TableCaption>Este es su carrito de Compras</TableCaption>
+                    {!finalizarCompra && <TableCaption><Button bg={"teal"} size="sm"
+                        fontSize="20px" color={"white"} onClick={() => handleFinalizarCompra()}>Finalizar Compra</Button>
+                    </TableCaption>}
+                    
                     <Thead>
                         <Tr>
                             <Th>Nombre</Th>
@@ -74,8 +81,11 @@ const CartContainer = () => {
                         </Tr>
                     </Tfoot>
                 </Table>}
-                {!loading && productCartList.length == 0 && <CartEmpty></CartEmpty>}
+                {!loading && productCartList.length === 0 && <CartEmpty></CartEmpty>}
+                {!loading && finalizarCompra && <FormOrder></FormOrder>}
+
             </Container>
+
         </>
     );
 }

@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import ItemList from "./ItemList";
 import Loader from "./Loader";
 import Message from "./Message";
-import { getAllDoscs, getDocById, getDocsCategory } from '../helpers/helpfirebase.js';
+import { getAllDoscs, getDocsCategory } from '../helpers/helpfirebase.js';
 import { useParams } from "react-router-dom";
 
 

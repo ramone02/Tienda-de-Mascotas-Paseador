@@ -1,4 +1,5 @@
-import { collection, getDocs, doc, getDoc, query, where } from 'firebase/firestore';
+import { async } from '@firebase/util';
+import { collection, getDocs, doc, getDoc, query, where, addDoc } from 'firebase/firestore';
 import { db } from "../utils/firebase";
 
 //Obtener todos los documentos
@@ -37,6 +38,13 @@ export const getDocsCategory = async (categoryId) => {
             return itemList;
         })
     return data;
+}
+
+//
+export const sendOrder = async(order)=>{    
+    const queryRef = collection(db, 'orders');
+    const idOrder = await addDoc(queryRef, order).then((e)=> e);
+    return idOrder;
 }
 
 // get docs by search

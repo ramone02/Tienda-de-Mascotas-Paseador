@@ -8,11 +8,11 @@ import { CartContext } from "../context/CartContext";
 
 const CartWidget = () => {
 
-    const {productCartList} = useContext(CartContext);
+    const {productCartList, getContadorCart} = useContext(CartContext);
     const [total, settotal] = useState(0);
 
     useEffect(()=>{
-        settotal(productCartList.reduce((acc, e) => acc + e.cantidad, 0));
+        settotal(getContadorCart());
     },[productCartList])
 
 
