@@ -30,6 +30,7 @@ function App() {
   return (
     <CartProvider>
       <BrowserRouter>
+      {/* Background para toda la App */}
         <div className="App">
           <Box css={{
             backgroundImage: useColorModeValue(CONFETTI_LIGHT, CONFETTI_DARK),

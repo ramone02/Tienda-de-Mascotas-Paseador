@@ -9,41 +9,35 @@ import {
     InputGroup,
     InputLeftElement,
     Stack,
-    Textarea,
     useColorModeValue,
     VStack,
 } from '@chakra-ui/react';
 import React, { useState, useContext, useEffect } from 'react';
 import { BsPerson } from 'react-icons/bs';
-import { MdEmail, MdOutlineEmail, MdOutlineLocalPhone } from 'react-icons/md';
+import { MdOutlineEmail, MdOutlineLocalPhone } from 'react-icons/md';
 import { CartContext } from "../context/CartContext";
 import { sendOrder } from '../helpers/helpfirebase.js';
 
 
 const FormOrder = () => {
 
-    const [loading, setLoading] = useState(null);
     const [idOrder, setIdOrder] = useState("");
     const { productCartList, getPrecioTotal } = useContext(CartContext);
 
-    useEffect(()=> {
-
-    },[])
-
-
-    const createOrder = (orden)=> {
-        console.log(orden);
+    const createOrder = async (orden) => {
+        const now = new Date();
         const orden1 = {
-            buyer: {...orden},
+            buyer: { ...orden },
             items: productCartList,
+            date: now.toLocaleString(),
             total: getPrecioTotal(),
         };
-        sendOrder(orden1).then((id)=> setIdOrder(id));
+        setIdOrder(await sendOrder(orden1));
         console.log(orden1);
         console.log(idOrder);
     }
 
-    const handleSubmit = (e)=>{
+    const handleSubmit = (e) => {
         e.preventDefault();
         const order = {
             nombre: e.target.nombre.value,

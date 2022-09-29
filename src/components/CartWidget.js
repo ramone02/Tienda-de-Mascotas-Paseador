@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import { BsCart3 } from 'react-icons/bs';
-import { IconButton} from "@chakra-ui/react";
+import { IconButton, Button} from "@chakra-ui/react";
 import { Link } from 'react-router-dom';
 import { CartContext } from "../context/CartContext";
 
@@ -19,15 +19,17 @@ const CartWidget = () => {
 
     return (
         <>
+            <Button bg="teal" >
             <Link to="/cart">
                 <IconButton
                     bg={"teal"}
                     size="md"
                     fontSize="28px"
-                    icon={<BsCart3/>}
-                ></IconButton>                
-                {total > 0 && <span>{total}</span> }
+                    icon={<BsCart3/> }
+                ></IconButton>
+                {total > 0 && <span>{total}</span>}
             </Link>
+            </Button>
         </>
     );
 }

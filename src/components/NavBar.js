@@ -18,8 +18,6 @@ import dev from '../img/dev.png';
 import CartWidget from './CartWidget';
 import "../navbar.css";
 
-const Links = ['Inicio', 'Productos', 'Paseadores', 'FAQs'];
-
 const NavLink = ({ children }) => (
     <LinkChakra
         /* Probando colores */
@@ -110,7 +108,6 @@ export default function Simple() {
                             <Button bg={"teal"} onClick={toggleColorMode}>
                                 {colorMode === 'light' ? <MoonIcon /> : <SunIcon />}
                             </Button>
-
                         </Stack>
                     </Flex>
                 </Flex>

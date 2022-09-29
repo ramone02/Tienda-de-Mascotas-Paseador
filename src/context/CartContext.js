@@ -1,4 +1,5 @@
 import { createContext, useState } from 'react';
+import Swal from 'sweetalert2';
 
 export const CartContext = createContext();
 
@@ -13,7 +14,7 @@ export const CartProvider = ({ children }) => {
 
     const addProduct = (product) => {
         //Si producto existe en el carrito le sumo la cantidad que venga en el obj "producto"
-        //si no lo agrego directamente al carrito
+        //si no lo agrego directamente al carrito        
         const indexProduct = exists(product.id);
         if (indexProduct !== -1) {
             const copyProducts = [...productCartList];
@@ -22,11 +23,25 @@ export const CartProvider = ({ children }) => {
         } else {
             const newProducts = [...productCartList, product];
             setProductCartList(newProducts);
-        }
+        }               
     }
 
     //si exite el producto y su cantidad > 1 resto de cantidad si no lo quito del Cart
     const removeProduct = (id) => {
+        Swal.fire({
+            title: 'Esta seguro de Eliminar un Producto?',
+            titleText: 'Usted estara reduciendo en 1 la cantidad de su compra',
+            icon: 'warning',
+            color: 'white',
+            background: '#2D3748',
+            showCancelButton: true,
+            confirmButtonText: 'Si, Eliminala',
+            confirmButtonColor: '#2C7A7B',
+            cancelButtonText: 'No, Cancelar',
+            cancelButtonColor: '#C53030'
+        }).then((result) => {
+            if (result.isConfirmed) {
+
         const indexProduct = exists(id);
         const copyProducts = [...productCartList];
         if (indexProduct !== -1 && copyProducts[indexProduct].cantidad > 1) {
@@ -36,6 +51,27 @@ export const CartProvider = ({ children }) => {
             copyProducts.splice(indexProduct, 1);
             setProductCartList(copyProducts);
         }
+                Swal.fire({
+                    title: 'Eliminada!',
+                    titleText: 'Usted ha Eliminado la Entrada del Carrito',
+                    icon: 'success',
+                    color: 'white',
+                    background: '#2D3748',
+                    iconColor: '#198754',
+                    confirmButtonColor: '#2C7A7B'
+                });
+            } else {
+                Swal.fire({
+                    title: 'Cancelado!',
+                    titleText: 'Su Entrada no ha sido borrada',
+                    color: 'white',
+                    background: '#2D3748',
+                    icon: 'error',
+                    iconColor: '#d33',
+                    confirmButtonColor: '#2C7A7B'
+                });
+            }
+        });
     }
 
     const cleanCart = () => {

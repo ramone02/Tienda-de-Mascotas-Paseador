@@ -1,4 +1,3 @@
-import { async } from '@firebase/util';
 import { collection, getDocs, doc, getDoc, query, where, addDoc } from 'firebase/firestore';
 import { db } from "../utils/firebase";
 
@@ -43,7 +42,7 @@ export const getDocsCategory = async (categoryId) => {
 //
 export const sendOrder = async(order)=>{    
     const queryRef = collection(db, 'orders');
-    const idOrder = await addDoc(queryRef, order).then((e)=> e);
+    const idOrder = await addDoc(queryRef, order).then((e)=> e.id);
     return idOrder;
 }
 

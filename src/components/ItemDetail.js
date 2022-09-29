@@ -12,6 +12,7 @@ import {
     useColorModeValue,
     Tag,
 } from '@chakra-ui/react';
+import { useToast } from "@chakra-ui/react";
 import ItemCount from "./ItemCount";
 import { CartContext } from "../context/CartContext";
 
@@ -19,11 +20,19 @@ const ItemDetail = ({ item }) => {
     const { id, nombre, img, razas, experiencia, descripcion, calificacion, tipo, precio } = item;
     const {addProduct} = useContext(CartContext);
     const [finalizarCompra, setFinalizarCompra] = useState(false);
+    const toast = useToast();
 
     const onAdd = (cantidad) => {
         const newProduct = {...item, cantidad: cantidad};
         addProduct(newProduct);
         setFinalizarCompra(true);
+        toast({
+            title: 'Producto Agregado con exito',
+            status: 'success',
+            position: 'top-right',
+            variant: 'solid',
+            duration: 2000,
+        })
     }
 
     return (

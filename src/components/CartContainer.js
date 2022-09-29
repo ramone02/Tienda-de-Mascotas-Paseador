@@ -28,11 +28,14 @@ const CartContainer = () => {
         setTimeout(() => {
             setLoading(false);
             setTotal(getPrecioTotal());
+            setFinalizarCompra(false);
         }, 3000);
     }, [productCartList, getPrecioTotal]);
 
     const handleFinalizarCompra = () => {
-        setFinalizarCompra(true);
+        setTimeout(() => {
+            setFinalizarCompra(true);
+        }, 1000);
     }
 
     return (
@@ -44,7 +47,6 @@ const CartContainer = () => {
                     {!finalizarCompra && <TableCaption><Button bg={"teal"} size="sm"
                         fontSize="20px" color={"white"} onClick={() => handleFinalizarCompra()}>Finalizar Compra</Button>
                     </TableCaption>}
-                    
                     <Thead>
                         <Tr>
                             <Th>Nombre</Th>
@@ -76,14 +78,16 @@ const CartContainer = () => {
                             <Th></Th>
                             <Th></Th>
                             <Th></Th>
-                            <Th><Button bg={"teal"} size="sm"
-                                fontSize="20px" color={"white"}>${total}</Button></Th>
+                            <Th>
+                                <Button bg={"teal"} size="sm"
+                                    fontSize="20px" color={"white"}>${total}
+                                </Button>
+                            </Th>
                         </Tr>
                     </Tfoot>
                 </Table>}
                 {!loading && productCartList.length === 0 && <CartEmpty></CartEmpty>}
                 {!loading && finalizarCompra && <FormOrder></FormOrder>}
-
             </Container>
 
         </>
