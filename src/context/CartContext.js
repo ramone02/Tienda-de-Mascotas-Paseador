@@ -53,7 +53,7 @@ export const CartProvider = ({ children }) => {
         }
                 Swal.fire({
                     title: 'Eliminada!',
-                    titleText: 'Usted ha Eliminado la Entrada del Carrito',
+                    titleText: 'Usted ha Eliminado su Producto del Carrito',
                     icon: 'success',
                     color: 'white',
                     background: '#2D3748',
@@ -63,7 +63,7 @@ export const CartProvider = ({ children }) => {
             } else {
                 Swal.fire({
                     title: 'Cancelado!',
-                    titleText: 'Su Entrada no ha sido borrada',
+                    titleText: 'Su Producto no ha sido Eliminado',
                     color: 'white',
                     background: '#2D3748',
                     icon: 'error',

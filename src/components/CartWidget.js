@@ -22,7 +22,6 @@ const CartWidget = () => {
             <Button bg="teal" >
             <Link to="/cart">
                 <IconButton
-                    bg={"teal"}
                     size="md"
                     fontSize="28px"
                     icon={<BsCart3/> }

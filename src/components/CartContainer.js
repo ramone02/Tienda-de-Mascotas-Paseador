@@ -9,19 +9,20 @@ import {
     Container,
     Heading,
     IconButton,
-    Button
+    Button,
+    Link as LinkChakra
 } from '@chakra-ui/react';
 import { DeleteIcon } from '@chakra-ui/icons';
 import Loader from "./Loader";
 import CartEmpty from "./CartEmpty";
-import FormOrder from "./FormOrder";
+import { Link } from "react-router-dom";
 
 const CartContainer = () => {
 
     const [loading, setLoading] = useState(null);
     const [finalizarCompra, setFinalizarCompra] = useState(false);
     const [total, setTotal] = useState(0);
-    const { productCartList, addProduct, removeProduct, cleanCart, getPrecioTotal } = useContext(CartContext);
+    const { productCartList, addProduct, removeProduct, getPrecioTotal } = useContext(CartContext);
 
     useEffect(() => {
         setLoading(true);
@@ -31,11 +32,12 @@ const CartContainer = () => {
             setFinalizarCompra(false);
         }, 3000);
     }, [productCartList, getPrecioTotal]);
+    
 
-    const handleFinalizarCompra = () => {
-        setTimeout(() => {
-            setFinalizarCompra(true);
-        }, 1000);
+    if (!loading && productCartList.length === 0) {
+        return (
+            <CartEmpty></CartEmpty>
+        );
     }
 
     return (
@@ -44,8 +46,19 @@ const CartContainer = () => {
                 <Heading mb={5}>Carrito de Compras</Heading>
                 {loading && <Loader></Loader>}
                 {!loading && productCartList.length > 0 && <Table variant='striped' size={["lg", "md"]} >
-                    {!finalizarCompra && <TableCaption><Button bg={"teal"} size="sm"
-                        fontSize="20px" color={"white"} onClick={() => handleFinalizarCompra()}>Finalizar Compra</Button>
+                    {!finalizarCompra && <TableCaption>
+                        <Button bg={"teal"}>
+                            <LinkChakra 
+                                px={2}
+                                py={1}
+                                rounded={'md'}
+                                _activeLink={{ color: '#38373b' }}
+                                _hover={{
+                                    textDecoration: 'none',
+                                }}>
+                                <Link to='/form_order'>Finalizar Compra</Link>
+                            </LinkChakra>
+                        </Button>
                     </TableCaption>}
                     <Thead>
                         <Tr>
@@ -85,9 +98,9 @@ const CartContainer = () => {
                             </Th>
                         </Tr>
                     </Tfoot>
-                </Table>}
+                </Table>}{/* 
                 {!loading && productCartList.length === 0 && <CartEmpty></CartEmpty>}
-                {!loading && finalizarCompra && <FormOrder></FormOrder>}
+                {!loading && finalizarCompra && <FormOrder></FormOrder>} */}
             </Container>
 
         </>

@@ -1,21 +1,14 @@
-import { Heading, Text, Link as LinkChakra, Stack, Flex, Image, Center } from '@chakra-ui/react';
-import { Link } from 'react-router-dom';
-import DogeEmpty from "../img/doge_meme1.png";
+import React from "react";
+import { Center, Flex, Heading, Stack, Text, Image, Link as LinkChakra } from "@chakra-ui/react";
+import DogeSuccess from "../img/doge_meme.png";
+import { Link } from "react-router-dom";
 
-const CartEmpty = () => {
+
+const OrderSuccess = ({id}) => {
     return (
         <>
-            <Heading
-                display="inline-block"
-                as="h2"
-                size="2xl"
-                bgGradient="linear(to-r, teal.400, teal.600)"
-                backgroundClip="text"
-                m={5}>
-                Su Carrito está Vacio
-            </Heading>
             <Center py={6}>
-                <Stack
+                <Stack 
                     borderWidth="1px"
                     borderRadius="lg"
                     w={{ sm: '100%', md: '640px' }}
@@ -25,11 +18,11 @@ const CartEmpty = () => {
                     boxShadow={'2xl'}
                     padding={4} 
                     margin={'30px'}>
-                    <Flex flex={1} bg="purple.700">
+                    <Flex flex={1} bg="purple.600">
                         <Image
                             objectFit="cover"
                             boxSize="100%"
-                            src={DogeEmpty}
+                            src={DogeSuccess}
                         />
                     </Flex>
                     <Stack
@@ -38,17 +31,16 @@ const CartEmpty = () => {
                         justifyContent="center"
                         alignItems="center"
                         p={1}>
-                        <Heading as="h4" size="xl" >
-                            No se ha encontrado productos en su carrito
+                        <Heading as="h2" size="2xl" >
+                            Gracias por su compra
                         </Heading>
-                        <Text color={'gray.400'} mb={6}>
-                            Si desea puede volver al listado de Productos para añadir al carrito
-                        </Text>
                         <Text
                             textAlign={'center'}
-                            color='gray.400'
+                            color='gray.300'
                             p={3}
                             fontSize="2xl">
+                            Aqui tiene el detalle de su Pedido:<br/>
+                            {id}
                         </Text>
                         <LinkChakra bg={"teal"}
                             px={2}
@@ -59,12 +51,13 @@ const CartEmpty = () => {
                                 textDecoration: 'none',
                                 bg: 'gray.700',
                             }}><Link to='/category/producto'>Ir a productos</Link></LinkChakra>
-
+                        
                     </Stack>
                 </Stack>
             </Center>
         </>
     );
+
 }
 
-export default CartEmpty;
+export default OrderSuccess;

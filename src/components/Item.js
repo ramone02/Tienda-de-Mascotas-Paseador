@@ -9,7 +9,6 @@ import {
     VStack,
     HStack,
     IconButton,
-    useColorModeValue
 } from '@chakra-ui/react';
 import { BsCalendarWeek } from "react-icons/bs";
 import { Link } from "react-router-dom";
@@ -24,11 +23,11 @@ const Item = ({ data }) => {
                 textAlign="center"
                 borderRadius="lg"
                 borderWidth="1px"
-                bg={useColorModeValue('cyan.800', 'purple.800')}
+                bg='purple.800'
             >
                 <Avatar size='2xl' name='' src={img} />
                 <VStack>
-                    <Heading as="h3" size="lg" color={useColorModeValue('black', 'white')} fontWeight="bold" mt={2}>{nombre}</Heading>
+                    <Heading as="h3" size="lg" color='white' fontWeight="bold" mt={2}>{nombre}</Heading>
                     <Box mt={2}>
                         <VStack>
                             <Text my="1" color="white" >{descripcion} </Text>

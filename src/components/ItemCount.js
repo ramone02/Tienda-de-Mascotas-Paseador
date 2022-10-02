@@ -16,15 +16,15 @@ const ItemCount = ({ stock, onAdd, finalizarCompra }) => {
                     <IconButton
                         bg={"teal"}
                         size="sm"
-                        fontSize="28px"
+                        fontSize="24px"
                         icon={<AiFillMinusCircle />}
                         onClick={restarCantidad}
                     />
-                    <Tag size="lg">{cantidad}</Tag>
+                    <Tag size="lg" >{cantidad}</Tag>
                     <IconButton
                         bg={"teal"}
                         size="sm"
-                        fontSize="28px"
+                        fontSize="24px"
                         icon={<AiFillPlusCircle />}
                         onClick={sumarCantidad}
                     />

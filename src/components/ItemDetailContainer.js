@@ -24,7 +24,7 @@ const ItemDetailContainer = () => {
     return (
         <>
             <Box w="100%" my={5}>
-                <Heading>ItemDetailContainer</Heading>
+                <Heading></Heading>
                 {loading ? <Loader /> : <ItemDetail item={item}></ItemDetail>}
                 {error && <Message msg={`Error : ${error.status}:${error.statusText}`}
                     bgColor="#dc3545"></Message>}

@@ -9,7 +9,6 @@ import {
     Link,
     Stack,
     Text,
-    useColorModeValue,
     Tag,
 } from '@chakra-ui/react';
 import { useToast } from "@chakra-ui/react";
@@ -42,15 +41,16 @@ const ItemDetail = ({ item }) => {
                     borderWidth="1px"
                     borderRadius="lg"
                     w={{ sm: '100%', md: '640px' }}
-                    height={{ sm: '476px', md: '25rem' }}
+                    height={{ md: '25rem' }}
                     direction={{ base: 'column', md: 'row' }}
-                    bg={useColorModeValue('white', 'purple.800')}
+                    bg='purple.800'
                     boxShadow={'2xl'}
-                    padding={4}>
+                    padding={4} margin={'30px'}>
                     <Flex flex={1} bg="blue.200">
                         <Image
                             objectFit="cover"
                             boxSize="100%"
+                            height={{ sm: '456px', md: '370'}}
                             src={img}
                         />
                     </Flex>
@@ -65,7 +65,7 @@ const ItemDetail = ({ item }) => {
                         </Heading>
                         <Text
                             textAlign={'center'}
-                            color={useColorModeValue('gray.700', 'gray.400')}
+                            color='gray.400'
                             p={3}
                             fontSize="2xl">
                             {descripcion}
