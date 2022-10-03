@@ -8,7 +8,7 @@ import {
     Text,
     VStack,
     HStack,
-    IconButton,
+    IconButton, useColorModeValue
 } from '@chakra-ui/react';
 import { BsCalendarWeek } from "react-icons/bs";
 import { Link } from "react-router-dom";
@@ -31,18 +31,18 @@ const Item = ({ data }) => {
                     <Box mt={2}>
                         <VStack>
                             <Text my="1" color="white" >{descripcion} </Text>
-                            {tipo && <Tag color="teal.700" variant="solid"><Button variant="link">#{tipo}</Button></Tag>}
+                            {tipo && <Tag color="white" variant="solid"><Button  variant="link">#{tipo}</Button></Tag>}
                         </VStack>
                         <VStack>
-                            {calificacion && <Heading alignItems="center" as="h4" size="md">Calificacion: {calificacion}/5</Heading>}
+                            {calificacion && <Heading alignItems="center" as="h4" color='white' size="md">Calificacion: {calificacion}/5</Heading>}
                             <HStack mt={3}>
-                                {razas && razas.map((e, index) => <Tag key={index} color="teal.700" variant="solid"><Button key={index} variant="link">#{e}</Button></Tag>)}
+                                {razas && razas.map((e, index) => <Button key={index} variant="link">#{e}</Button>)}
                             </HStack>
                         </VStack>
                         <HStack mt={5} justifyContent="center">
-                            <Link to={`/item/${id}`}><Button bg={"teal"} variant="solid">Ver Más</Button></Link>
+                            <Link to={`/item/${id}`}><Button bg={useColorModeValue('purple.200', 'teal')} variant="solid">Ver Más</Button></Link>
                             <IconButton
-                                bg={"teal"}
+                                bg={useColorModeValue('purple.200', 'teal')}
                                 size="md"
                                 fontSize="28px"
                                 icon={<BsCalendarWeek />}

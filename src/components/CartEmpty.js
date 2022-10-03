@@ -1,4 +1,4 @@
-import { Heading, Text, Link as LinkChakra, Stack, Flex, Image, Center } from '@chakra-ui/react';
+import { Heading, Text, Link as LinkChakra, Stack, Flex, Image, Center, useColorModeValue } from '@chakra-ui/react';
 import { Link } from 'react-router-dom';
 import DogeEmpty from "../img/doge_meme1.png";
 
@@ -38,7 +38,7 @@ const CartEmpty = () => {
                         justifyContent="center"
                         alignItems="center"
                         p={1}>
-                        <Heading as="h4" size="xl" >
+                        <Heading as="h4" size="xl" color='white'>
                             No se ha encontrado productos en su carrito
                         </Heading>
                         <Text color={'gray.400'} mb={6}>
@@ -50,14 +50,14 @@ const CartEmpty = () => {
                             p={3}
                             fontSize="2xl">
                         </Text>
-                        <LinkChakra bg={"teal"}
+                        <LinkChakra bg={useColorModeValue('purple.200', "teal")}
                             px={2}
                             py={1}
                             rounded={'md'}
                             _activeLink={{ color: '#38373b' }}
                             _hover={{
                                 textDecoration: 'none',
-                                bg: 'gray.700',
+                                bg: useColorModeValue('purple.200', "gray.700"),
                             }}><Link to='/category/producto'>Ir a productos</Link></LinkChakra>
 
                     </Stack>

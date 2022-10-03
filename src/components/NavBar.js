@@ -5,11 +5,14 @@ import {
     Link as LinkChakra,
     IconButton,
     useDisclosure,
+    useColorModeValue,
     Stack,
     Button,
+    useColorMode,
     Image
 } from '@chakra-ui/react';
 import { HamburgerIcon, CloseIcon } from '@chakra-ui/icons';
+import { MoonIcon, SunIcon } from '@chakra-ui/icons';
 import { Link } from 'react-router-dom';
 import dev from '../img/dev.png';
 import CartWidget from './CartWidget';
@@ -24,17 +27,18 @@ const NavLink = ({ children }) => (
         rounded={'md'}
         _hover={{
             textDecoration: 'none',
-            bg: 'gray.700',
+            bg: useColorModeValue('gray.300', 'gray.700'),
         }}>
     </LinkChakra>
 );
 
 export default function Simple() {
     const { isOpen, onOpen, onClose } = useDisclosure();
+    const { colorMode, toggleColorMode } = useColorMode();
 
     return (
         <>
-            <Box bg='gray.900' px={4} py={2} > 
+            <Box bg={useColorModeValue('purple.800', 'gray.900')} px={4} py={2} > 
                 <Flex h={16} alignItems={'center'} justifyContent={'space-between'} >
                     {/* Icono Menu Hamburguesa */}
                     <IconButton
@@ -55,44 +59,44 @@ export default function Simple() {
                             spacing={4}
                             display={{ base: 'none', md: 'flex' }}>
                                 {/* -------- Link Inicio ------------*/}
-                            <LinkChakra bg={"teal"}
+                            <LinkChakra bg={useColorModeValue('purple.200', 'teal')}
                                 px={2}
                                 py={1}
                                 rounded={'md'}
                                 _activeLink={{ color: '#38373b' }}
                                 _hover={{
                                     textDecoration: 'none',
-                                    bg: 'gray.700',
+                                    bg: useColorModeValue('gray.100', 'gray.700'),
                                 }}><Link to='/' >Inicio</Link></LinkChakra>
                             {/* -------- Link Paseadores ------------*/}
-                            <LinkChakra bg={"teal"}
+                            <LinkChakra bg={useColorModeValue('purple.200', 'teal')}
                                 px={2}
                                 py={1}
                                 rounded={'md'}
                                 _activeLink={{ color: '#38373b' }}
                                 _hover={{
                                     textDecoration: 'none',
-                                    bg: 'gray.700',
+                                    bg: useColorModeValue('gray.100', 'gray.700'),
                                 }}><Link to='/category/paseador'>Paseadores</Link></LinkChakra>
                             {/* -------- Link Productos ------------*/}
-                            <LinkChakra bg={"teal"}
+                            <LinkChakra bg={useColorModeValue('purple.200', 'teal')}
                                 px={2}
                                 py={1}
                                 rounded={'md'}
                                 _activeLink={{ color: '#38373b' }}
                                 _hover={{
                                     textDecoration: 'none',
-                                    bg: 'gray.700',
+                                    bg: useColorModeValue('gray.100', 'gray.700'),
                                 }}><Link to='/category/producto'>Productos</Link></LinkChakra>
                             {/* -------- Link FAQs ------------*/}
-                            <LinkChakra bg={"teal"}
+                            <LinkChakra bg={useColorModeValue('purple.200', 'teal')}
                                 px={2}
                                 py={1}
                                 rounded={'md'}
                                 _activeLink={{ color: '#38373b' }}
                                 _hover={{
                                     textDecoration: 'none',
-                                    bg: 'gray.700',
+                                    bg: useColorModeValue('gray.100', 'gray.700'),
                                 }}><Link to='/faqs'>FAQs</Link></LinkChakra>
                         </HStack>
                     </HStack>
@@ -101,6 +105,9 @@ export default function Simple() {
                         <Stack direction={'row'} spacing={7}>
                             {/* Boton Carrito */}
                             <CartWidget></CartWidget>
+                            <Button bg={useColorModeValue('purple.200', 'teal')} onClick={toggleColorMode}>
+                                {colorMode === 'light' ? <MoonIcon /> : <SunIcon />}
+                            </Button>
                         </Stack>
                     </Flex>
                 </Flex>

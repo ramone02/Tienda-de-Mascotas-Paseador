@@ -5,7 +5,7 @@ import {
     Link,
     Stack,
     Text,
-    VisuallyHidden,
+    VisuallyHidden, useColorModeValue
 } from '@chakra-ui/react';
 import {FaGithub, FaLinkedin} from 'react-icons/fa';
 
@@ -66,7 +66,7 @@ const SocialButton = ({
 }) => {
     return (
         <chakra.button
-            bg='whiteAlpha.100'
+            bg={useColorModeValue('purple.200', 'whiteAlpha.100')}
             rounded={'full'}
             w={8}
             h={8}
@@ -89,7 +89,7 @@ const SocialButton = ({
 export default function SmallCentered() {
     return (
         <Box position={""} bottom={""}
-            color='gray.200'>
+            color={useColorModeValue('black','gray.200')}>
             <Container
                 as={Stack}
                 maxW={'6xl'}
