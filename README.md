@@ -7,6 +7,7 @@
 <li>React Js</li>
 <li>React DOM</li>
 <li>React Router</li>
+<li>React-Hook-Form</li>
 <ul>
 <h3>Podras encontrar al Paseador que mas se adapte a tu Mascota </h3>
 <h3>Y ademas encontrar los mejores producto de calidad para tu Mascota </h3>
