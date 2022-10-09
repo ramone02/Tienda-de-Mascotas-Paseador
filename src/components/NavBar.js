@@ -117,7 +117,7 @@ export default function Simple() {
             {isOpen ? (
                 <Box pb={4} display={{ md: 'none' }}>
                     <Stack as={'nav'} spacing={4}>
-                        <LinkChakra bg={"teal"}
+                        <LinkChakra bg={['purple.200',"teal"]} 
                             px={2}
                             py={1}
                             rounded={'md'}

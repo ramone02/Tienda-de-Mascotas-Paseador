@@ -10,7 +10,8 @@ import {
     Heading,
     IconButton,
     Button,
-    Link as LinkChakra
+    Link as LinkChakra,
+    TableContainer
 } from '@chakra-ui/react';
 import { DeleteIcon } from '@chakra-ui/icons';
 import Loader from "./Loader";
@@ -32,7 +33,7 @@ const CartContainer = () => {
             setFinalizarCompra(false);
         }, 3000);
     }, [productCartList, getPrecioTotal]);
-    
+
 
     if (!loading && productCartList.length === 0) {
         return (
@@ -45,10 +46,10 @@ const CartContainer = () => {
             <Container maxWidth={"80%"} mt={10} mb={10} centerContent>
                 <Heading mb={5}>Carrito de Compras</Heading>
                 {loading && <Loader></Loader>}
-                {!loading && productCartList.length > 0 && <Table variant='striped' size={["lg", "md"]} >
+                {!loading && productCartList.length > 0 && <TableContainer><Table variant='striped' size={["sm", "lg"]} >
                     {!finalizarCompra && <TableCaption>
                         <Button bg={"teal"}>
-                            <LinkChakra 
+                            <LinkChakra
                                 px={2}
                                 py={1}
                                 rounded={'md'}
@@ -98,7 +99,8 @@ const CartContainer = () => {
                             </Th>
                         </Tr>
                     </Tfoot>
-                </Table>}{/* 
+                </Table>
+                </TableContainer>}{/* 
                 {!loading && productCartList.length === 0 && <CartEmpty></CartEmpty>}
                 {!loading && finalizarCompra && <FormOrder></FormOrder>} */}
             </Container>

@@ -77,10 +77,10 @@ const FormOrder = () => {
                 id="contact" >
                 <Box
                     borderRadius="lg"
-                    m={{ base: 5, md: 16, lg: 10 }}
-                    p={{ base: 5, lg: 16 }}>
+                    m={{ base: 3, md: 8, lg: 5 }}
+                    p={{ base: 3, lg: 8 }}>
                     <Box>
-                        <VStack spacing={{ base: 4, md: 8, lg: 20 }}>
+                        <VStack spacing={{ base: 2, md: 4, lg: 10 }}>
                             <Heading
                                 fontSize={{
                                     base: '2xl',

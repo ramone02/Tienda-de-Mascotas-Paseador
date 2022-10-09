@@ -35,7 +35,7 @@ const ItemListContainer = ({ titulo }) => {
 
     return (
         <>
-            <Box w="100%" my={5}>
+            <Box w="100%" my={5} pos={"relative"} minHeight={"100vh"}>
                 <Heading>{titulo}</Heading>
                 {loading && <Loader></Loader>}
                 {!loading && data && <ItemList data={data}></ItemList>}
