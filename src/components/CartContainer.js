@@ -46,7 +46,7 @@ const CartContainer = () => {
             <Container maxWidth={"80%"} mt={10} mb={10} centerContent>
                 <Heading mb={5}>Carrito de Compras</Heading>
                 {loading && <Loader></Loader>}
-                {!loading && productCartList.length > 0 && <TableContainer><Table variant='striped' size={["sm", "lg"]} >
+                {!loading && productCartList.length > 0 && <Table variant='striped' size={["sm", "lg"]} >
                     {!finalizarCompra && <TableCaption>
                         <Button bg={"teal"}>
                             <LinkChakra
@@ -99,8 +99,7 @@ const CartContainer = () => {
                             </Th>
                         </Tr>
                     </Tfoot>
-                </Table>
-                </TableContainer>}{/* 
+                </Table>}{/* 
                 {!loading && productCartList.length === 0 && <CartEmpty></CartEmpty>}
                 {!loading && finalizarCompra && <FormOrder></FormOrder>} */}
             </Container>
